@@ -42,6 +42,8 @@ Only an empty directory or one marked by a prior successful build can be overwri
 
 ### CV review
 
+The public CV is based on the 7 October 2026 Berkeley Arthropod Biodiversity application CV. Its four-page public copy removes the private phone, street address and referee email addresses; original application files remain local. Built CV links include a content fingerprint so a replacement does not keep opening an older browser copy.
+
 The existing application-specific CV is blocked by default. Replace its HTML links with a reviewed public CV or remove the links before preparing a final release. For a provisional draft without a CV:
 
 ```bash
@@ -66,10 +68,16 @@ Do not add a `CNAME` file for `weblab.science` until domain ownership and DNS ar
 
 ## Publication citation counts
 
-The ten published papers remain a curated list in `research.html`. Each has a DOI attribute. OpenAlex citation counts are cached in `content/citations.json`; they do not change the bibliography or manuscript statuses.
+The eleven published papers remain a curated list in `research.html`. Each has a DOI attribute. OpenAlex citation counts are cached in `content/citations.json`; they do not change the bibliography or manuscript statuses.
 
 Run `python3 scripts/update-citations.py`, then `python3 scripts/prepare-site.py --base-url https://sven9r.github.io`. The public build labels counts with OpenAlex and their retrieval date. Failed lookups retain each paper's previous successful count and checked date; an outage does not replace a known count with zero or imply a new check.
 
 The Pages workflow rebuilds on changes and refreshes counts weekly on Monday at 06:17 UTC. Scheduled runs commit `content/citations.json` to `main` as `github-actions[bot]` only when a successful refresh changes the snapshot and that file differs from the checked-out version. These weekly snapshot commits preserve the latest counts in the repository and keep the public repository active; GitHub disables public-repository schedules after [60 days without repository activity](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). There are no empty keepalive commits. If every lookup fails, the cached values and original checked dates remain in use and no refresh commit is made. The Actions cache remains an additional fallback.
 
-Snapshot commits use an ordinary push. If `main` advances during a scheduled build, a rejected push fails that run rather than overwriting the newer work; the newer source can be built by its push-triggered run. The workflow publishes only `dist/`. No API key or paid service is required for these DOI lookups under the current OpenAlex policy. Historical journal impact factors are not currently populated.
+Snapshot commits use an ordinary push. If `main` advances during a scheduled build, a rejected push fails that run rather than overwriting the newer work; the newer source can be built by its push-triggered run. The workflow publishes only `dist/`. No API key or paid service is required for these DOI lookups under the current OpenAlex policy.
+
+## Journal impact factors
+
+Journal impact factors use the same metric year as the paper's publication year. Verified values live separately in `content/journal-metrics.json` as schema version 1, with a `works` object keyed by the same canonical DOI attributes as the published-paper cards. Each record supplies `journal`, `publication_year`, `jif_year`, numeric `jif`, HTTPS `source_url`, `source_label`, and the verification date `verified_on` (`YYYY-MM-DD`). Both year fields must match the visible four-digit publication year on the card.
+
+The build adds only verified records, with the metric year and a direct provenance link visible beneath the citation count. Missing records produce no metric. Invalid years, values or source metadata stop the build. These are curated annual snapshots from the cited sources; OpenAlex citation refreshes do not create, replace or update journal impact factors.

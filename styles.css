@@ -703,7 +703,8 @@ h3 {
   text-underline-offset: 0.18em;
 }
 
-.publication-card .citation-count {
+.publication-card .citation-count,
+.publication-card .journal-impact {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -713,13 +714,19 @@ h3 {
   line-height: 1.5;
 }
 
-.citation-count a {
+.citation-count a,
+.journal-impact a {
   color: var(--color-accent-dark);
   font-weight: 650;
 }
 
-.citation-count__date {
+.citation-count__date,
+.journal-impact__source {
   color: var(--color-muted);
+}
+
+.publication-card .journal-impact {
+  margin-top: 0.4rem;
 }
 
 .timeline {

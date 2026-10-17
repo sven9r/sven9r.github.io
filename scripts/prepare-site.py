@@ -8,6 +8,7 @@ from html import escape
 from html.parser import HTMLParser
 import json
 import importlib.util
+import math
 from pathlib import Path
 import re
 import shutil
@@ -49,6 +50,125 @@ def render_citation_badges(text, records):
         count = record["cited_by_count"]
         noun = "citation" if count == 1 else "citations"
         badge = f'  <p class="citation-count"><a href="{escape(record["openalex_id"], quote=True)}" target="_blank" rel="noopener noreferrer">{count:,} {noun} · OpenAlex</a> <span class="citation-count__date">· checked <time datetime="{date}">{label}</time></span></p>\n          '
+        offset = paper["end_offset"]
+        text = text[:offset] + badge + text[offset:]
+    return text
+
+
+class PublicationYearParser(HTMLParser):
+    """Read the visible year from each curated published-paper card."""
+
+    def __init__(self, text, dois):
+        super().__init__(convert_charrefs=True)
+        self.dois = set(dois)
+        self.normalize_doi = citation_helpers().normalize_doi
+        self.current_doi = None
+        self.in_year = False
+        self.year_text = []
+        self.years = {}
+        self.feed(text)
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "article" and values.get("data-doi"):
+            doi = self.normalize_doi(values["data-doi"])
+            if doi in self.dois:
+                self.current_doi = doi
+        if tag == "p" and self.current_doi and "publication-meta" in values.get("class", "").split():
+            self.in_year = True
+            self.year_text = []
+
+    def handle_data(self, data):
+        if self.in_year:
+            self.year_text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "p" and self.in_year:
+            label = "".join(self.year_text).strip()
+            if not re.fullmatch(r"\d{4}", label) or self.current_doi in self.years:
+                raise ValueError(f"Expected one four-digit publication year for {self.current_doi}.")
+            self.years[self.current_doi] = int(label)
+            self.in_year = False
+        if tag == "article":
+            self.current_doi = None
+
+
+def validate_journal_metric(doi, record, publication_year):
+    if not isinstance(record, dict):
+        raise ValueError(f"Journal metric for {doi} must be an object.")
+    for field in ("journal", "source_label"):
+        if not isinstance(record.get(field), str) or not record[field].strip():
+            raise ValueError(f"Journal metric for {doi} needs a non-empty {field}.")
+    for field in ("publication_year", "jif_year"):
+        if type(record.get(field)) is not int or record[field] != publication_year:
+            raise ValueError(f"Journal metric {field} for {doi} must match its visible publication year ({publication_year}).")
+    jif = record.get("jif")
+    if type(jif) not in (int, float) or not math.isfinite(jif) or jif <= 0:
+        raise ValueError(f"Journal impact factor for {doi} must be a positive finite number.")
+    source_url = record.get("source_url")
+    if not isinstance(source_url, str):
+        raise ValueError(f"Journal metric for {doi} needs an HTTPS source URL.")
+    try:
+        url = urlsplit(source_url)
+    except ValueError as error:
+        raise ValueError(f"Malformed journal metric source URL for {doi}.") from error
+    if url.scheme != "https" or not url.hostname or url.username or url.password or re.search(r"\s", source_url):
+        raise ValueError(f"Journal metric for {doi} needs an HTTPS source URL without credentials or whitespace.")
+    try:
+        url.port  # Reject malformed ports, even when a hostname was parsed.
+    except ValueError as error:
+        raise ValueError(f"Malformed journal metric source URL for {doi}.") from error
+    verified = record.get("verified_on")
+    if not isinstance(verified, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", verified):
+        raise ValueError(f"Journal metric verified_on for {doi} must be YYYY-MM-DD.")
+    try:
+        datetime.strptime(verified, "%Y-%m-%d")
+    except ValueError as error:
+        raise ValueError(f"Invalid journal metric verified_on date for {doi}.") from error
+    return record
+
+
+def load_journal_metrics(path, text):
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError as error:
+        raise ValueError(f"Invalid JSON in journal metrics file {path.name}.") from error
+    if not isinstance(data, dict) or type(data.get("schema_version")) is not int or data["schema_version"] != 1 or not isinstance(data.get("works"), dict):
+        raise ValueError("Journal metrics need schema_version 1 and a works object keyed by DOI.")
+    helpers = citation_helpers()
+    papers = helpers.read_publications(text)
+    dois = {paper["doi"] for paper in papers}
+    years = PublicationYearParser(text, dois).years
+    records = {}
+    for doi, record in data["works"].items():
+        if helpers.normalize_doi(doi) != doi or doi not in dois:
+            raise ValueError(f"Journal metric DOI must exactly match a curated published-paper DOI: {doi!r}")
+        if doi not in years:
+            raise ValueError(f"Missing visible publication year for journal metric DOI {doi}.")
+        records[doi] = validate_journal_metric(doi, record, years[doi])
+    return records
+
+
+def render_journal_metrics(text, records):
+    if not records:
+        return text
+    helpers = citation_helpers()
+    papers = helpers.read_publications(text)
+    years = PublicationYearParser(text, (paper["doi"] for paper in papers)).years
+    for paper in reversed(papers):
+        doi = paper["doi"]
+        record = records.get(doi)
+        if record is None:
+            continue
+        if doi not in years:
+            raise ValueError(f"Missing visible publication year for journal metric DOI {doi}.")
+        validate_journal_metric(doi, record, years[doi])
+        value = format(record["jif"], ".15g")
+        label = f'{record["jif_year"]} journal impact factor: {value}'
+        provenance = f'Source: {record["source_label"]}; verified {record["verified_on"]}'
+        badge = f'  <p class="journal-impact"><a href="{escape(record["source_url"], quote=True)}" target="_blank" rel="noopener noreferrer" title="{escape(provenance, quote=True)}">{escape(label)}</a> <span class="journal-impact__source">· {escape(record["source_label"])}</span></p>\n          '
         offset = paper["end_offset"]
         text = text[:offset] + badge + text[offset:]
     return text
@@ -189,7 +309,7 @@ def public_url(base, path):
     return base + ("/" if relative == "index.html" else "/" + quote(relative, safe="/"))
 
 
-def output_html(source, parser, stage, base, omit_cv=False, citation_records=None):
+def output_html(source, parser, stage, base, omit_cv=False, citation_records=None, journal_metrics=None):
     text = source.read_text(encoding="utf-8")
     for index, (offset, original, attrs) in reversed(list(enumerate(parser.images))):
         values = dict(attrs)
@@ -210,8 +330,11 @@ def output_html(source, parser, stage, base, omit_cv=False, citation_records=Non
         text = omit_cv_links(text)
     if source.name == "research.html":
         text = render_citation_badges(text, citation_records or {})
-    # Updated styles and behavior must not reuse a browser's older cached copy.
-    for asset, attribute in (("styles.css", "href"), ("script.js", "src")):
+        text = render_journal_metrics(text, journal_metrics or {})
+    # Updated assets and the public CV must not reuse an older browser copy.
+    for asset, attribute in (("styles.css", "href"), ("script.js", "src"), ("cv/Sven_Weber_CV_public.pdf", "href")):
+        if not (stage / asset).is_file():
+            continue
         version = sha256((stage / asset).read_bytes()).hexdigest()[:12]
         text = text.replace(f'{attribute}="{asset}"', f'{attribute}="{asset}?v={version}"')
     canonical = public_url(base, source)
@@ -238,10 +361,13 @@ def build(base, output, allow_application_cv, omit_cv=False):
         raise ValueError(f"Refusing to overwrite a non-generated output directory: {output}")
     pages, sources, parsers = collect_sources(allow_application_cv, omit_cv)
     citation_records = {}
+    journal_metrics = {}
     if ROOT / "research.html" in parsers:
         helpers = citation_helpers()
-        helpers.read_publications((ROOT / "research.html").read_text(encoding="utf-8"))
+        research_text = (ROOT / "research.html").read_text(encoding="utf-8")
+        helpers.read_publications(research_text)
         citation_records = helpers.load_cache(ROOT / "content/citations.json")
+        journal_metrics = load_journal_metrics(ROOT / "content/journal-metrics.json", research_text)
     if output in sources or any(source.is_relative_to(output) for source in sources):
         raise ValueError("Output contains a source file; choose a separate build directory.")
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -251,7 +377,7 @@ def build(base, output, allow_application_cv, omit_cv=False):
             if source.suffix.lower() != ".html":
                 copy_asset(source, stage / source.relative_to(ROOT))
         for source in pages:
-            (stage / source.name).write_text(output_html(source, parsers[source], stage, base, omit_cv, citation_records), encoding="utf-8")
+            (stage / source.name).write_text(output_html(source, parsers[source], stage, base, omit_cv, citation_records, journal_metrics), encoding="utf-8")
         sitemap = ElementTree.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         for page in pages:
             if page.name != "404.html":

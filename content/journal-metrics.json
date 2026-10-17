@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "convention": "JIF metric year equals the paper publication year; JCR release year is not used.",
+  "works": {
+    "10.1002/ece3.72175": {
+      "journal": "Ecology and Evolution",
+      "publication_year": 2025,
+      "jif_year": 2025,
+      "jif": 2.6,
+      "source_url": "https://news.sciencenet.cn/htmlpaper/2026/9/2026929103559990156110.shtm",
+      "source_label": "Journal announcement via ScienceNet",
+      "verified_on": "2026-10-17",
+      "evidence": "The journal-credited announcement explicitly states 2025 JIF: 2.6; Wiley independently displays 2.6 without a metric year.",
+      "supporting_sources": [
+        "https://onlinelibrary.wiley.com/journal/20457758",
+        "https://news.sciencenet.cn/htmlpaper/2026/9/20269281175382156056.shtm"
+      ]
+    },
+    "10.1002/edn3.70196": {
+      "journal": "Environmental DNA",
+      "publication_year": 2025,
+      "jif_year": 2025,
+      "jif": 5.8,
+      "source_url": "https://portalcientifico.uam.es/en/ipublic/source/6358217",
+      "source_label": "JCR via UAM",
+      "verified_on": "2026-10-17",
+      "evidence": "Institutional journal history identifies Environmental DNA, ISSN 2637-4943, 2025 IF_WoS 5.8; the 2024 row is 6.2."
+    },
+    "10.1038/s41559-025-02812-6": {
+      "journal": "Nature Ecology & Evolution",
+      "publication_year": 2025,
+      "jif_year": 2025,
+      "jif": 17.1,
+      "source_url": "https://www.nature.com/natecolevol/journal-impact",
+      "source_label": "Nature journal metrics",
+      "verified_on": "2026-10-17",
+      "evidence": "Publisher labels Journal Impact Factor: 17.1 (2025)."
+    },
+    "10.1111/een.13382": {
+      "journal": "Ecological Entomology",
+      "publication_year": 2024,
+      "jif_year": 2024,
+      "jif": 1.6,
+      "source_url": "https://topj.lib.whu.edu.cn/search2.asp?page=3&sea=e&searchtype=sci",
+      "source_label": "JCR via Wuhan University Library",
+      "verified_on": "2026-10-17",
+      "evidence": "The table column explicitly specifies impact factor (2024); row 41 identifies Ecological Entomology, ISSN 0307-6946, 1.6."
+    },
+    "10.1016/j.ympev.2023.107988": {
+      "journal": "Molecular Phylogenetics and Evolution",
+      "publication_year": 2024,
+      "jif_year": 2024,
+      "jif": 3.6,
+      "source_url": "https://topj.lib.whu.edu.cn/show.asp?cat=zk&id=6460",
+      "source_label": "JCR via Wuhan University Library",
+      "verified_on": "2026-10-17",
+      "evidence": "The journal library record explicitly identifies impact factor (2024): 3.6."
+    },
+    "10.1111/1755-0998.13900": {
+      "journal": "Molecular Ecology Resources",
+      "publication_year": 2024,
+      "jif_year": 2024,
+      "jif": 5.5,
+      "source_url": "https://portalcientifico.uam.es/es/ipublic/source/809805",
+      "source_label": "JCR via UAM",
+      "verified_on": "2026-10-17",
+      "evidence": "Institutional journal history explicitly identifies 2024 IF_WoS 5.5; corroborated by the Wuhan University Library JCR record for metric year 2024.",
+      "supporting_sources": [
+        "https://topj.lib.whu.edu.cn/show.asp?cat=sci&id=5168"
+      ]
+    },
+    "10.1016/j.cub.2024.07.100": {
+      "journal": "Current Biology",
+      "publication_year": 2024,
+      "jif_year": 2024,
+      "jif": 7.5,
+      "source_url": "https://kniznica.umb.sk/app/cmsSiteBoxAttachment.php?ID=6170&cmsDataID=0#page=1",
+      "source_label": "Clarivate JCR via UMB Library",
+      "verified_on": "2026-10-17",
+      "evidence": "Clarivate JCR export updated 18 June 2025: 2024 JIF column, Current Biology ISSN 0960-9822, value 7.5. This is metric year 2024, not release year 2025.",
+      "supporting_sources": [
+        "https://biblio.ugent.be/publication/01HPGRYQVJKE1CTYYPR2E5RY68"
+      ]
+    },
+    "10.1111/1755-0998.13710": {
+      "journal": "Molecular Ecology Resources",
+      "publication_year": 2023,
+      "jif_year": 2023,
+      "jif": 5.5,
+      "source_url": "https://portalcientifico.uam.es/es/ipublic/source/809805",
+      "source_label": "JCR via UAM",
+      "verified_on": "2026-10-17",
+      "evidence": "Institutional journal history explicitly identifies 2023 IF_WoS 5.5."
+    },
+    "10.7554/elife.78521": {
+      "journal": "eLife",
+      "publication_year": 2022,
+      "jif_year": 2022,
+      "jif": 7.7,
+      "source_url": "https://vrip.ucm.cl/wp-content/uploads/2023/07/Guia_de_publicacion_WoS_2022_para_invesigadoras_e_investigadores_UCM.pdf#page=56",
+      "source_label": "JCR · U. Católica del Maule, p. 56",
+      "verified_on": "2026-10-17",
+      "evidence": "The UCM 2022 journal guide table explicitly labels JIF 2022 and gives ELIFE, ISSN 2050-084X, 7.7. Independently corroborated by Ghent University Library JCR impact factor 7.7 (2022).",
+      "supporting_sources": [
+        "https://biblio.ugent.be/publication/01GTGRYQ43RHGZFAJBQFRY88S1"
+      ]
+    },
+    "10.1098/rsbl.2022.0091": {
+      "journal": "Biology Letters",
+      "publication_year": 2022,
+      "jif_year": 2022,
+      "jif": 3.3,
+      "source_url": "https://vrip.ucm.cl/wp-content/uploads/2023/07/Guia_de_publicacion_WoS_2022_para_invesigadoras_e_investigadores_UCM.pdf#page=57",
+      "source_label": "JCR · U. Católica del Maule, p. 57",
+      "verified_on": "2026-10-17",
+      "evidence": "The UCM 2022 journal guide table explicitly labels JIF 2022 and gives Biology Letters, ISSN 1744-9561, 3.3."
+    }
+  }
+}

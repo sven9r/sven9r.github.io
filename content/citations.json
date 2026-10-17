@@ -3,61 +3,67 @@
   "source": "OpenAlex",
   "works": {
     "10.1002/ece3.72175": {
-      "captured_at": "2026-10-17T19:08:41Z",
+      "captured_at": "2026-10-17T19:35:13Z",
       "cited_by_count": 1,
       "doi": "10.1002/ece3.72175",
       "openalex_id": "https://openalex.org/W4414770940"
     },
     "10.1002/edn3.70196": {
-      "captured_at": "2026-10-17T19:08:42Z",
+      "captured_at": "2026-10-17T19:35:14Z",
       "cited_by_count": 3,
       "doi": "10.1002/edn3.70196",
       "openalex_id": "https://openalex.org/W4415023229"
     },
     "10.1016/j.cub.2024.07.100": {
-      "captured_at": "2026-10-17T19:08:45Z",
+      "captured_at": "2026-10-17T19:35:15Z",
       "cited_by_count": 13,
       "doi": "10.1016/j.cub.2024.07.100",
       "openalex_id": "https://openalex.org/W4401911089"
     },
     "10.1016/j.ympev.2023.107988": {
-      "captured_at": "2026-10-17T19:08:44Z",
+      "captured_at": "2026-10-17T19:35:16Z",
       "cited_by_count": 15,
       "doi": "10.1016/j.ympev.2023.107988",
       "openalex_id": "https://openalex.org/W4389502351"
     },
     "10.1038/s41559-025-02812-6": {
-      "captured_at": "2026-10-17T19:08:43Z",
+      "captured_at": "2026-10-17T19:35:14Z",
       "cited_by_count": 9,
       "doi": "10.1038/s41559-025-02812-6",
       "openalex_id": "https://openalex.org/W4412819523"
     },
     "10.1098/rsbl.2022.0091": {
-      "captured_at": "2026-10-17T19:08:46Z",
+      "captured_at": "2026-10-17T19:35:18Z",
       "cited_by_count": 39,
       "doi": "10.1098/rsbl.2022.0091",
       "openalex_id": "https://openalex.org/W4282919837"
     },
     "10.1111/1755-0998.13710": {
-      "captured_at": "2026-10-17T19:08:45Z",
+      "captured_at": "2026-10-17T19:35:17Z",
       "cited_by_count": 29,
       "doi": "10.1111/1755-0998.13710",
       "openalex_id": "https://openalex.org/W4294368545"
     },
     "10.1111/1755-0998.13900": {
-      "captured_at": "2026-10-17T19:08:44Z",
+      "captured_at": "2026-10-17T19:35:16Z",
       "cited_by_count": 27,
       "doi": "10.1111/1755-0998.13900",
       "openalex_id": "https://openalex.org/W4389069045"
     },
+    "10.1111/1755-0998.70172": {
+      "captured_at": "2026-10-17T19:35:12Z",
+      "cited_by_count": 2,
+      "doi": "10.1111/1755-0998.70172",
+      "openalex_id": "https://openalex.org/W7166147580"
+    },
     "10.1111/een.13382": {
-      "captured_at": "2026-10-17T19:08:43Z",
+      "captured_at": "2026-10-17T19:35:15Z",
       "cited_by_count": 12,
       "doi": "10.1111/een.13382",
       "openalex_id": "https://openalex.org/W4402658607"
     },
     "10.7554/elife.78521": {
-      "captured_at": "2026-10-17T19:08:46Z",
+      "captured_at": "2026-10-17T19:35:17Z",
       "cited_by_count": 41,
       "doi": "10.7554/elife.78521",
       "openalex_id": "https://openalex.org/W4308684838"
