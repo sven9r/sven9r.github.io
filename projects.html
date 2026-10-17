@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="landscape-page projects-page">
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
@@ -33,14 +33,22 @@
       </nav>
     </header>
 
-    <main id="main" class="page">
-      <section class="page-header">
-        <p class="eyebrow">Projects</p>
-        <h1>Projects and collaborations</h1>
-        <p class="page-intro">
-          Current and past collaborations in molecular ecology and biodiversity research, from Hawaiian field surveys to natural DNA samplers and biological archives.
-        </p>
+    <main id="main">
+      <section class="landscape-header" aria-labelledby="projects-title">
+        <img class="landscape-header__landscape" src="assets/landscapes/research-hawaii.webp" width="2400" height="936" alt="Green ridges and valley at Nuʻuanu Pali on Oʻahu, Hawaiʻi" loading="eager" fetchpriority="high">
+        <div class="landscape-header__inner">
+          <div class="landscape-header__copy">
+              <p class="eyebrow">Projects</p>
+              <h1 id="projects-title">Projects and collaborations</h1>
+              <p class="page-intro">
+                Current and past collaborations in molecular ecology and biodiversity research, from Hawaiian field surveys to natural DNA samplers and biological archives.
+              </p>
+          </div>
+        </div>
+        <p class="landscape-header__credit">Nuʻuanu Pali, Oʻahu · Photo by <a href="https://commons.wikimedia.org/wiki/File:Oahu_Landscape.jpg" target="_blank" rel="noopener noreferrer">Bernard Spragg.NZ / Wikimedia Commons</a> (<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0</a>)</p>
       </section>
+
+      <div class="page">
 
       <section class="section research-projects" aria-labelledby="selected-projects-heading">
         <div class="section-heading section-heading--center">
@@ -142,6 +150,7 @@
         </div>
       </section>
 
+      </div>
     </main>
 
     <footer class="site-footer">

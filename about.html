@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="landscape-page about-page">
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
@@ -33,13 +33,21 @@
       </nav>
     </header>
 
-    <main id="main" class="page">
-      <section class="page-header">
-        <p class="eyebrow">About</p>
-        <h1>Ecology, molecules, and biodiversity change</h1>
+    <main id="main">
+      <section class="landscape-header landscape-header--ohia" aria-labelledby="about-title">
+        <img class="landscape-header__landscape" src="assets/landscapes/about-ohia.webp" width="2560" height="1920" alt="Red ʻōhiʻa lehua flowers among lush green leaves at Waikamoi, Maui" loading="eager" fetchpriority="high">
+        <div class="landscape-header__inner">
+          <div class="landscape-header__copy">
+              <p class="eyebrow">About</p>
+              <h1 id="about-title">Ecology, molecules, and biodiversity change</h1>
+          </div>
+        </div>
+        <p class="landscape-header__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Starr-100412-4732-Metrosideros_polymorpha-flowers_and_leaves-Waikamoi-Maui_(24662053699).jpg" target="_blank" rel="noopener noreferrer">Forest &amp; Kim Starr</a> · <a href="https://creativecommons.org/licenses/by/3.0/us/" target="_blank" rel="noopener noreferrer">CC BY 3.0 US</a> · cropped</p>
       </section>
 
-      <section class="split-section">
+      <div class="page">
+
+      <section class="section split-section">
         <div class="prose">
           <!-- Edit the biography text here. -->
           <p>
@@ -63,6 +71,7 @@
           <img class="site-photo site-photo--personal" src="media/pictures/profile/picture_private_rotated.jpeg" alt="Sven Weber outdoors with a dog">
         </aside>
       </section>
+      </div>
     </main>
 
     <footer class="site-footer">

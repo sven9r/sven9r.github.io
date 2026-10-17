@@ -148,11 +148,12 @@ if (typeof HTMLDialogElement !== "undefined" && typeof HTMLDialogElement.prototy
         trigger = link;
         pageState = previousPageState;
         if (!documentPreview.hasChildNodes()) documentPreview.append(cvPages.content.cloneNode(true));
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        const bodyWidthBeforeLock = document.body.getBoundingClientRect().width;
         const paddingRight = parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
         document.body.style.top = `${-pageState.y}px`;
-        document.body.style.paddingRight = `${paddingRight + scrollbarWidth}px`;
         document.documentElement.classList.add("cv-viewer-open");
+        const scrollbarWidth = Math.max(0, document.body.getBoundingClientRect().width - bodyWidthBeforeLock);
+        document.body.style.paddingRight = `${paddingRight + scrollbarWidth}px`;
         documentPreview.scrollTop = 0;
         closeButton.focus({ preventScroll: true });
       });

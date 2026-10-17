@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="landscape-page outreach-page">
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
@@ -33,11 +33,19 @@
       </nav>
     </header>
 
-    <main id="main" class="page">
-      <section class="page-header">
-        <p class="eyebrow">Outreach</p>
-        <h1>Sharing biodiversity science with different communities</h1>
+    <main id="main">
+      <section class="landscape-header landscape-header--ridges" aria-labelledby="outreach-title">
+        <img class="landscape-header__landscape" src="assets/landscapes/hawaiian-ridges.webp" width="2560" height="1706" alt="Lush green ridges rising into clouds on Oʻahu, Hawaiʻi" loading="eager" fetchpriority="high">
+        <div class="landscape-header__inner">
+          <div class="landscape-header__copy">
+              <p class="eyebrow">Outreach</p>
+              <h1 id="outreach-title">Sharing biodiversity science with different communities</h1>
+          </div>
+        </div>
+        <p class="landscape-header__credit">Oʻahu, Hawaiʻi · Photo by <a href="https://unsplash.com/photos/an-aerial-view-of-a-lush-green-mountain-range-KC8Ub59jTkA" target="_blank" rel="noopener noreferrer">Spenser Sembrat / Unsplash</a></p>
       </section>
+
+      <div class="page">
 
       <section class="section">
         <div class="card-grid card-grid--two">
@@ -86,6 +94,7 @@
           </article>
         </div>
       </section>
+      </div>
     </main>
 
     <footer class="site-footer">

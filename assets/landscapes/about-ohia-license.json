@@ -1,0 +1,29 @@
+{
+  "file": "about-ohia.webp",
+  "title": "ʻŌhiʻa lehua flowers and leaves at Waikamoi",
+  "species": "Metrosideros polymorpha",
+  "location": "Waikamoi, Maui, Hawaiʻi",
+  "author": "Forest & Kim Starr",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Starr-100412-4732-Metrosideros_polymorpha-flowers_and_leaves-Waikamoi-Maui_(24662053699).jpg",
+  "original_source_url": "https://www.flickr.com/photos/starr-environmental/24662053699/",
+  "author_url": "https://www.starrenvironmental.com/",
+  "license": "Creative Commons Attribution 3.0 United States (CC BY 3.0 US)",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/us/",
+  "license_summary": "Reuse and adaptation permitted with author attribution, a licence link and an indication of changes.",
+  "credit": "Photo: Forest & Kim Starr / Wikimedia Commons, CC BY 3.0 US; resized and cropped.",
+  "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Starr-100412-4732-Metrosideros_polymorpha-flowers_and_leaves-Waikamoi-Maui_%2824662053699%29.jpg",
+  "source_dimensions": [
+    3648,
+    2736
+  ],
+  "output_dimensions": [
+    2560,
+    1920
+  ],
+  "output_bytes": 459022,
+  "output_sha256": "7fa48f78e9243f550e7c18b28effe03d5baab56e4bb06ad61be5586c2dee9f61",
+  "changes": "Resized to 2560 px wide and encoded as WebP. Scene content is unchanged; the website banner crops the image.",
+  "recommended_object_position": "50% 10%",
+  "retrieved_date": "2026-10-17",
+  "primary_source_species_verification": "The photographer’s Commons description identifies Metrosideros polymorpha and Waikamoi, Maui. Original source identifier #100412-4732."
+}

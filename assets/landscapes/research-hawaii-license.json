@@ -1,0 +1,26 @@
+{
+  "file": "research-hawaii.webp",
+  "title": "Nuʻuanu Pali panorama, Koʻolau Range, Oʻahu",
+  "location": "Nuʻuanu Pali, Koʻolau Range, Oʻahu, Hawaiʻi",
+  "author": "Bernard Spragg. NZ",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Oahu_Landscape.jpg",
+  "original_source_url": "https://www.flickr.com/photos/volvob12b/17284241089/",
+  "license": "CC0 1.0 Universal Public Domain Dedication",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "license_summary": "Public domain dedication: copy, modify and reuse, including commercially, without permission. Credit is provided as a courtesy.",
+  "credit": "Photo by Bernard Spragg. NZ / Wikimedia Commons (CC0)",
+  "source_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Oahu_Landscape.jpg",
+  "source_dimensions": [
+    2400,
+    936
+  ],
+  "output_dimensions": [
+    2400,
+    936
+  ],
+  "output_bytes": 448300,
+  "output_sha256": "80bbaf0b98a642bb74d2c648bc626abb02ff55622f52dd615a2f4884d9992f5d",
+  "changes": "Encoded as WebP at original dimensions. Scene content is unchanged; display cropping is handled by CSS.",
+  "recommended_object_position": "50% 48%",
+  "retrieved_date": "2026-10-17"
+}

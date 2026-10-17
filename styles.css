@@ -22,10 +22,12 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
@@ -808,6 +810,23 @@ h3 {
   text-underline-offset: 0.18em;
 }
 
+.publication-list--numbered {
+  margin: 0;
+  padding-left: 2.2rem;
+  list-style: decimal;
+}
+
+.publication-list--numbered > li {
+  padding-left: 0.35rem;
+}
+
+.publication-list--numbered > li::marker {
+  color: var(--color-accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 .publication-card .publication-title {
   color: var(--color-accent);
   font-weight: 700;
@@ -1385,5 +1404,139 @@ h3 {
   .home-page .home-topic {
     grid-template-columns: 1fr;
     gap: 0.7rem;
+  }
+}
+
+/* Subpages share the same landscape header geometry. */
+
+.landscape-page .landscape-header--ridges {
+  --header-crop: 50% 75%;
+}
+
+.landscape-page .landscape-header--ohia {
+  --header-crop: 50% 10%;
+}
+
+.landscape-page .landscape-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(320px, 31.58vw, 460px);
+  background: #2b4635;
+}
+
+.landscape-page .landscape-header__landscape {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--header-crop, 50% 48%);
+}
+
+.landscape-page .landscape-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(9, 29, 20, 0.83), rgba(9, 29, 20, 0.56) 53%, rgba(9, 29, 20, 0.08) 90%);
+}
+
+.landscape-page .landscape-header__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2.6rem;
+}
+
+.landscape-page .landscape-header__copy {
+  max-width: 850px;
+}
+
+.landscape-page .landscape-header .eyebrow,
+.landscape-page .landscape-header h1,
+.landscape-page .landscape-header .page-intro {
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+.landscape-page .landscape-header .eyebrow {
+  margin-bottom: 0.65rem;
+  font-size: 0.74rem;
+}
+
+.landscape-page .landscape-header h1 {
+  max-width: 850px;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 3.7vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.landscape-page .landscape-header .page-intro {
+  max-width: 760px;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.landscape-page .landscape-header__credit {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.7rem;
+  max-width: calc(100% - 3rem);
+  margin: 0;
+  padding: 0.2rem 0.4rem;
+  background: rgba(9, 29, 20, 0.55);
+  color: #fff;
+  font-size: 0.62rem;
+}
+
+.landscape-page .landscape-header__credit a {
+  color: inherit;
+}
+
+.landscape-page .landscape-header :focus-visible {
+  outline-color: #fff;
+}
+
+.research-page .research-subnav {
+  top: calc(4.13rem + 1px);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .landscape-page .landscape-header {
+    height: 400px;
+  }
+
+  .landscape-page .landscape-header__inner {
+    align-items: center;
+    padding: 1.3rem 1rem 3rem;
+  }
+
+  .landscape-page .landscape-header::after {
+    background: linear-gradient(90deg, rgba(9, 29, 20, 0.8), rgba(9, 29, 20, 0.54));
+  }
+
+  .landscape-page .landscape-header h1 {
+    font-size: clamp(1.85rem, 5.2vw, 2.2rem);
+  }
+
+  .landscape-page .landscape-header .page-intro {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .landscape-page .landscape-header__credit {
+    right: 0.75rem;
+    left: 0.75rem;
+    max-width: none;
+    width: fit-content;
+    font-size: 0.56rem;
   }
 }
