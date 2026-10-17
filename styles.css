@@ -1414,7 +1414,7 @@ h3 {
 }
 
 .landscape-page .landscape-header--ohia {
-  --header-crop: 50% 10%;
+  --header-crop: 50% 8%;
 }
 
 .landscape-page .landscape-header {
@@ -1433,6 +1433,13 @@ h3 {
   height: 100%;
   object-fit: cover;
   object-position: var(--header-crop, 50% 48%);
+}
+
+/* Give the close-up bloom more room inside the same shallow banner. */
+.landscape-page .landscape-header--ohia .landscape-header__landscape {
+  left: auto;
+  width: min(75%, 1050px);
+  mask-image: linear-gradient(90deg, transparent, #000 18%);
 }
 
 .landscape-page .landscape-header::after {
@@ -1512,6 +1519,11 @@ h3 {
 @media (max-width: 700px) {
   .landscape-page .landscape-header {
     height: 400px;
+  }
+
+  .landscape-page .landscape-header--ohia .landscape-header__landscape {
+    width: 100%;
+    mask-image: none;
   }
 
   .landscape-page .landscape-header__inner {
