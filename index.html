@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
@@ -34,67 +34,63 @@
     </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="hero__content">
-          <!-- Edit the homepage introduction here. -->
-          <img class="hero__brand" src="assets/branding/weblab-logo.png" alt="WEBLab — Ecology, Evolution, Biodiversity" loading="eager" fetchpriority="high">
+      <section class="home-hero" aria-labelledby="home-title">
+        <img class="home-hero__landscape" src="assets/landscapes/hawaiian-ridges.webp" width="2560" height="1706" alt="Lush green ridges rising into clouds on Oʻahu, Hawaiʻi" loading="eager" fetchpriority="high">
+        <div class="home-hero__inner">
+          <div class="home-hero__copy">
           <p class="eyebrow">Postdoctoral Researcher, UC Berkeley</p>
-          <h1>Sven Weber</h1>
-          <p class="hero__tagline">Molecular ecology, eDNA, arthropods, and island biodiversity</p>
-          <p class="hero__summary">
-            I am a postdoctoral researcher at UC Berkeley working at the intersection of molecular ecology, field biology, and biodiversity monitoring. My research uses environmental DNA, metabarcoding, and natural DNA samplers to study arthropods, spiders, invasive species, and ecological change across island and forest ecosystems.
-          </p>
-          <div class="button-row">
+          <h1 id="home-title">Sven Weber</h1>
+          <p class="home-hero__tagline">Molecular ecology, eDNA, arthropods,<br class="home-hero__break"> and island biodiversity</p>
+          <div class="button-row home-hero__actions">
             <a class="button button--primary" href="research.html">Research</a>
-            <a class="button button--secondary" href="mailto:sven.weber@berkeley.edu">Contact</a>
+            <a class="button button--secondary" href="projects.html">Projects</a>
             <a class="button button--secondary" href="cv/Sven_Weber_CV_public.pdf">CV</a>
           </div>
-        </div>
-        <aside class="hero__image" aria-label="Portrait and field notes">
-          <div class="field-panel">
-            <img class="site-photo site-photo--portrait" src="media/pictures/profile/profile_picture_Sven_Weber.jpg" alt="Portrait of Sven Weber">
-            <div class="specimen-note">
-              <span>Field notes</span>
-              <strong>Arthropods + Plants = Community</strong>
-              <p>From DNA to Community Ecology, Conservation and Evolution</p>
-            </div>
           </div>
-        </aside>
+        </div>
+        <p class="home-hero__credit">Oʻahu, Hawaiʻi · Photo by <a href="https://unsplash.com/photos/an-aerial-view-of-a-lush-green-mountain-range-KC8Ub59jTkA" target="_blank" rel="noopener noreferrer">Spenser Sembrat / Unsplash</a></p>
       </section>
 
-      <section class="motif-strip" aria-label="Research motifs">
-        <div>
-          <span class="motif-kicker">Spider surveys</span>
-          <strong>Arthropod communities</strong>
+      <section class="home-bio" aria-labelledby="home-bio-heading">
+        <div class="home-bio__copy">
+          <img class="home-bio__brand" src="assets/branding/weblab-logo.png" width="2032" height="774" alt="WEBLab — Ecology, Evolution, Biodiversity">
+          <h2 id="home-bio-heading">Field ecology meets molecular biodiversity monitoring</h2>
+          <p>
+            I am a postdoctoral researcher at UC Berkeley working at the intersection of molecular ecology, field biology, and biodiversity monitoring. My research uses environmental DNA, metabarcoding, and natural DNA samplers to study arthropods, spiders, invasive species, and ecological change across island and forest ecosystems.
+          </p>
+          <div class="home-bio__links">
+            <a href="about.html">More about me <span aria-hidden="true">↗</span></a>
+            <a href="mailto:sven.weber@berkeley.edu">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div>
-          <span class="motif-kicker">eDNA filters</span>
-          <strong>Metabarcoding data</strong>
-        </div>
-        <div>
-          <span class="motif-kicker">Island forests</span>
-          <strong>Hawaiian biodiversity</strong>
-        </div>
+        <figure class="home-bio__portrait">
+          <img src="media/pictures/profile/profile_picture_Sven_Weber.jpg" alt="Portrait of Sven Weber" loading="lazy">
+        </figure>
       </section>
 
-      <section class="section section--soft">
-        <div class="section-heading">
-          <p class="eyebrow">Current focus</p>
-          <h2>Field ecology meets molecular biodiversity monitoring</h2>
-        </div>
-        <div class="card-grid card-grid--three">
-          <article class="card">
-            <h3>Long-term biodiversity change</h3>
-            <p>Combining molecular methods, biological archives, and ecological time series to study biodiversity change across decades.</p>
-          </article>
-          <article class="card">
-            <h3>Hawaiian island biodiversity</h3>
-            <p>Studying arthropod communities, spiders, invasive species, and plant-arthropod interactions across Hawaiian forest ecosystems.</p>
-          </article>
-          <article class="card">
-            <h3>eDNA and natural DNA samplers</h3>
-            <p>Developing leaf-derived eDNA, leaf litter eDNA, gut-content metabarcoding, and museum-derived sampling approaches.</p>
-          </article>
+      <section class="home-research" aria-labelledby="home-research-heading">
+        <div class="home-research__inner">
+          <div class="home-research__heading">
+            <div>
+              <p class="eyebrow">Current focus</p>
+              <h2 id="home-research-heading">Research in focus</h2>
+            </div>
+            <a href="research.html">Explore research <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="home-research__topics">
+            <article class="home-topic">
+              <h3><a href="projects.html">Long-term biodiversity change <span aria-hidden="true">↗</span></a></h3>
+              <p>Combining molecular methods, biological archives, and ecological time series to study biodiversity change across decades.</p>
+            </article>
+            <article class="home-topic">
+              <h3><a href="projects.html">Hawaiian island biodiversity <span aria-hidden="true">↗</span></a></h3>
+              <p>Studying arthropod communities, spiders, invasive species, and plant-arthropod interactions across Hawaiian forest ecosystems.</p>
+            </article>
+            <article class="home-topic">
+              <h3><a href="research.html#publications">eDNA and natural DNA samplers <span aria-hidden="true">↗</span></a></h3>
+              <p>Developing leaf-derived eDNA, leaf litter eDNA, gut-content metabarcoding, and museum-derived sampling approaches.</p>
+            </article>
+          </div>
         </div>
       </section>
     </main>

@@ -1,0 +1,27 @@
+{
+  "file": "hawaiian-ridges.webp",
+  "title": "Aerial view of green mountain ridges on Oʻahu",
+  "location": "Oʻahu, Hawaiʻi, USA",
+  "location_note": "The photographer labels Oʻahu, Hawaiʻi; a more precise ridge or range is not stated in the primary source. This is a credited landscape image, not presented as Sven Weber’s own field photograph.",
+  "author": "Spenser Sembrat",
+  "author_url": "https://unsplash.com/@spensersembrat",
+  "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-lush-green-mountain-range-KC8Ub59jTkA",
+  "license": "Unsplash License",
+  "license_url": "https://unsplash.com/license",
+  "license_summary": "Free to download, copy, modify and use commercially or noncommercially; attribution appreciated. Do not sell the unchanged image or compile a competing image service.",
+  "credit": "Photo by Spenser Sembrat on Unsplash",
+  "source_image_url": "https://images.unsplash.com/photo-1710796987507-8acf14070f89?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+  "downloaded_source_dimensions": [
+    3000,
+    1999
+  ],
+  "output_dimensions": [
+    2560,
+    1706
+  ],
+  "output_bytes": 463318,
+  "output_sha256": "c65fc80cf57500c4354187ea242fbaa6537d0411f6b5b52bf9e6c8e7cab2fbd0",
+  "changes": "Resized to 2560 px wide and encoded as WebP; no generated or altered scene content. Display cropping is handled by CSS.",
+  "recommended_object_position": "50% 70%",
+  "retrieved_date": "2026-10-17"
+}
