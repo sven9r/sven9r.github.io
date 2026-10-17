@@ -616,6 +616,22 @@ h3 {
   margin-bottom: 0.75rem;
 }
 
+.site-photo--wildlife {
+  aspect-ratio: 3 / 2;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.personal-photo {
+  margin: 0;
+}
+
+.personal-photo figcaption {
+  margin-top: 0.5rem;
+  color: var(--color-muted);
+  font-size: 0.84rem;
+}
+
 .specimen-note {
   position: relative;
   max-width: 85%;
@@ -888,7 +904,7 @@ h3 {
 .news-copy {
   position: relative;
   z-index: 2;
-  max-width: 980px;
+  max-width: calc(100% - clamp(190px, 18vw, 280px) - 2rem);
 }
 
 .news-list {
@@ -910,9 +926,9 @@ h3 {
 }
 
 .ohia-illustration {
-  position: fixed;
-  top: 10rem;
-  right: max(1rem, calc((100vw - var(--max-width)) / 2 - 3.5rem));
+  position: absolute;
+  top: 3rem;
+  right: 0;
   z-index: 1;
   width: clamp(190px, 18vw, 280px);
   pointer-events: none;
@@ -1062,6 +1078,10 @@ h3 {
     position: static;
     width: min(82vw, 320px);
     order: -1;
+  }
+
+  .news-copy {
+    max-width: 100%;
   }
 
   .site-footer {
@@ -1442,6 +1462,35 @@ h3 {
   mask-image: linear-gradient(90deg, transparent, #000 18%);
 }
 
+/* Distinct personal photographs, with room for the subjects and page titles. */
+.landscape-page .landscape-header--personal .landscape-header__landscape {
+  left: auto;
+  width: min(75%, 1050px);
+  mask-image: linear-gradient(90deg, transparent, #000 18%);
+}
+
+.landscape-page .landscape-header--personal .landscape-header__copy {
+  max-width: 620px;
+}
+
+.landscape-page .landscape-header--green-spider {
+  --header-crop: 60% 58%;
+}
+
+.landscape-page .landscape-header--spider-portrait {
+  --header-crop: 60% 60%;
+}
+
+.landscape-page .landscape-header--fern {
+  background: #050806;
+}
+
+.landscape-page .landscape-header--fern .landscape-header__landscape {
+  width: min(56%, 660px);
+  object-fit: contain;
+  object-position: right center;
+}
+
 .landscape-page .landscape-header::after {
   content: "";
   position: absolute;
@@ -1524,6 +1573,21 @@ h3 {
   .landscape-page .landscape-header--ohia .landscape-header__landscape {
     width: 100%;
     mask-image: none;
+  }
+
+  .landscape-page .landscape-header--personal .landscape-header__landscape {
+    top: auto;
+    width: 100%;
+    height: 70%;
+    mask-image: linear-gradient(180deg, transparent, #000 25%);
+  }
+
+  .landscape-page .landscape-header--personal .landscape-header__inner {
+    align-items: flex-start;
+  }
+
+  .landscape-page .landscape-header--personal::after {
+    background: linear-gradient(180deg, rgba(9, 29, 20, 0.75), rgba(9, 29, 20, 0.38) 45%, rgba(9, 29, 20, 0.15) 80%);
   }
 
   .landscape-page .landscape-header__inner {

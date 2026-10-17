@@ -1,0 +1,89 @@
+{
+  "photos": [
+    {
+      "file": "green-jumping-spider.webp",
+      "description": "A small translucent green spider on the tip of a leaf",
+      "photographer": "Sven Weber",
+      "source_filename": "A9B51407-90A0-4AF1-8A41-E36AB045AA67_1_105_c.jpeg",
+      "source_dimensions": [
+        1086,
+        724
+      ],
+      "output_dimensions": [
+        1086,
+        724
+      ],
+      "output_sha256": "f47686606d5a641b6ab765b5e429a06a8a7cfca8a04e5ac673acfe3a4c4af162",
+      "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    },
+    {
+      "file": "jumping-spider-portrait.webp",
+      "description": "A front-facing jumping spider on a turquoise surface",
+      "photographer": "Sven Weber",
+      "source_filename": "12239E0E-71F9-4DA3-9C05-3EBFE03E1686_1_105_c.jpeg",
+      "source_dimensions": [
+        1086,
+        724
+      ],
+      "output_dimensions": [
+        1086,
+        724
+      ],
+      "output_sha256": "b03acb22d68d5148618764f1e44ad9ea11464ca903797c9fc1be75455d09e250",
+      "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    },
+    {
+      "file": "fern-unfurling.webp",
+      "description": "A tightly curled fern frond against a dark background",
+      "photographer": "Sven Weber",
+      "source_filename": "9032C025-575B-4EE6-8BDE-E1A5D929FFF0_4_5005_c.jpeg",
+      "source_dimensions": [
+        540,
+        360
+      ],
+      "output_dimensions": [
+        540,
+        360
+      ],
+      "output_sha256": "1b7f4b4df0684acc40fbba0d399b78475df937ebaf8f97bc2b13872e17800168",
+      "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    },
+    {
+      "file": "orange-bird.webp",
+      "description": "A small orange bird perched among green leaves",
+      "photographer": "Sven Weber",
+      "source_filename": "2CEBB165-7538-492C-A066-76562B17F56F_4_5005_c.jpeg",
+      "source_dimensions": [
+        540,
+        360
+      ],
+      "output_dimensions": [
+        540,
+        360
+      ],
+      "output_sha256": "35889cee743985841176b4caf58c3c2b7136ee3ec319c7a0c3ff6e091a086950",
+      "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    },
+    {
+      "file": "spider-egg-sac.webp",
+      "description": "A spider carrying a white egg sac on a green leaf",
+      "photographer": "Sven Weber",
+      "source_filename": "808E4192-9759-450E-8151-C9FDD3B26D67_1_105_c.jpeg",
+      "source_dimensions": [
+        1086,
+        724
+      ],
+      "output_dimensions": [
+        1086,
+        724
+      ],
+      "output_sha256": "cc79fcc51c7bc0c87dea769245890089a10c8cfd744f056a445f914a470ab1b8",
+      "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    }
+  ]
+}
