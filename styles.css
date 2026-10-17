@@ -1470,11 +1470,15 @@ h3 {
 }
 
 .landscape-page .landscape-header--personal .landscape-header__copy {
-  max-width: 620px;
+  max-width: min(620px, 52vw);
 }
 
 .landscape-page .landscape-header--green-spider {
   --header-crop: 60% 58%;
+}
+
+.landscape-page .landscape-header--green-spider .landscape-header__landscape {
+  filter: brightness(1.18);
 }
 
 .landscape-page .landscape-header--spider-portrait {
@@ -1497,6 +1501,10 @@ h3 {
   inset: 0;
   z-index: -1;
   background: linear-gradient(90deg, rgba(9, 29, 20, 0.83), rgba(9, 29, 20, 0.56) 53%, rgba(9, 29, 20, 0.08) 90%);
+}
+
+.landscape-page .landscape-header--personal::after {
+  background: linear-gradient(90deg, rgba(9, 29, 20, 0.86), rgba(9, 29, 20, 0.7) 28%, rgba(9, 29, 20, 0.45) 48%, rgba(9, 29, 20, 0.32) 55%, rgba(9, 29, 20, 0.05) 65%, transparent 72%);
 }
 
 .landscape-page .landscape-header__inner {
@@ -1586,8 +1594,8 @@ h3 {
     align-items: flex-start;
   }
 
-  .landscape-page .landscape-header--personal::after {
-    background: linear-gradient(180deg, rgba(9, 29, 20, 0.75), rgba(9, 29, 20, 0.38) 45%, rgba(9, 29, 20, 0.15) 80%);
+  .landscape-page .landscape-header--personal .landscape-header__copy {
+    max-width: 100%;
   }
 
   .landscape-page .landscape-header__inner {
@@ -1597,6 +1605,10 @@ h3 {
 
   .landscape-page .landscape-header::after {
     background: linear-gradient(90deg, rgba(9, 29, 20, 0.8), rgba(9, 29, 20, 0.54));
+  }
+
+  .landscape-page .landscape-header--personal::after {
+    background: linear-gradient(180deg, rgba(9, 29, 20, 0.82), rgba(9, 29, 20, 0.65) 36%, rgba(9, 29, 20, 0.36) 54%, transparent 66%);
   }
 
   .landscape-page .landscape-header h1 {
