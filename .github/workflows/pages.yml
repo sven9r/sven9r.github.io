@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out website source
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -33,7 +35,30 @@ jobs:
           key: openalex-counts-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: openalex-counts-
       - name: Refresh OpenAlex citation counts
-        run: python scripts/update-citations.py
+        id: citations
+        shell: bash
+        run: |
+          before="$RUNNER_TEMP/citations-before.json"
+          cp content/citations.json "$before"
+          python scripts/update-citations.py
+          if cmp -s "$before" content/citations.json; then
+            echo "refreshed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "refreshed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit refreshed weekly citation snapshot
+        if: github.event_name == 'schedule' && steps.citations.outputs.refreshed == 'true'
+        shell: bash
+        run: |
+          if git diff --quiet -- content/citations.json; then
+            echo "Citation snapshot already matches main; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- content/citations.json
+          git commit -m "Refresh OpenAlex citation snapshot"
+          git push origin HEAD:main
       - name: Rebuild news
         run: python scripts/build-news.py
       - name: Prepare public website
