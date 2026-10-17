@@ -153,41 +153,11 @@ h3 {
   text-transform: uppercase;
 }
 
-.site-logo {
-  position: relative;
-  width: 2.15rem;
-  height: 2.15rem;
-  flex: 0 0 2.15rem;
-  border: 1px solid rgba(31, 94, 59, 0.32);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, var(--color-accent) 0 22%, transparent 23%),
-    radial-gradient(circle at 50% 50%, rgba(31, 94, 59, 0.13) 0 56%, transparent 57%),
-    #fff;
-}
-
-.site-logo::before,
-.site-logo::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1.62rem;
-  height: 1.62rem;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background:
-    linear-gradient(90deg, transparent 0 18%, var(--color-accent) 19% 23%, transparent 24% 76%, var(--color-accent) 77% 81%, transparent 82%),
-    linear-gradient(45deg, transparent 0 19%, var(--color-accent) 20% 23%, transparent 24% 76%, var(--color-accent) 77% 80%, transparent 81%),
-    linear-gradient(-45deg, transparent 0 19%, var(--color-accent) 20% 23%, transparent 24% 76%, var(--color-accent) 77% 80%, transparent 81%);
-  opacity: 0.72;
-}
-
-.site-logo::after {
-  width: 0.78rem;
-  height: 0.78rem;
-  background: var(--color-accent-dark);
-  opacity: 1;
+.site-mark__icon {
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 2.65rem;
+  object-fit: contain;
 }
 
 .nav-list {
@@ -262,6 +232,12 @@ h3 {
   min-height: calc(82vh - 60px);
   padding-top: 4.2rem;
   padding-bottom: 4.2rem;
+}
+
+.hero__brand {
+  width: min(100%, 420px);
+  height: auto;
+  margin-bottom: 2rem;
 }
 
 .hero h1 {

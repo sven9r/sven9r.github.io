@@ -1,8 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#f3f7f1"/>
-  <g stroke="#1f5e3b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M26 28 16 19 11 11M25 32 12 29 6 22M25 36 11 40 7 49M27 41 19 49 18 58M38 28 48 19 53 11M39 32 52 29 58 22M39 36 53 40 57 49M37 41 45 49 46 58"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <style>:root { color: #20211f; } @media (prefers-color-scheme: dark) { :root { color: #f3f7f1; } }</style>
+  <g stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 2v25"/>
+    <path d="m17 37-7-7-1-7m7 16-9-2-4-6m13 11-9 4-3 9m14-10-6 7v9m11-24 6-7 1-7m-6 16 8-2 4-6m-12 11 9 4 3 9m-14-10 6 7v9"/>
   </g>
-  <ellipse cx="32" cy="37" rx="10" ry="13" fill="#1f5e3b"/>
-  <circle cx="32" cy="23" r="7" fill="#17452c"/>
+  <path d="M20 25c-4 3-7 6-7 10s3 7 7 7 7-3 7-7-3-7-7-10Z" fill="currentColor"/>
+  <ellipse cx="20" cy="43" rx="4.7" ry="6.2" fill="currentColor"/>
+  <g stroke="#426338" stroke-width="2.4" stroke-linecap="round">
+    <path d="M33 42c6-12 11-11 16-19"/>
+    <path d="M33 42c11 2 17-5 16-19"/>
+    <path d="M38 35v6m5-12v9" stroke-width="1.9"/>
+  </g>
+  <path d="M48 26C46 15 51 12 62 6c-2 11-5 20-14 20Z" fill="#426338"/>
+  <path d="M49 24c2-4 5-8 9-12" stroke="#fbfcfa" stroke-width="1.4" stroke-linecap="round"/>
 </svg>
