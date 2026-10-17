@@ -84,6 +84,23 @@
       "output_sha256": "cc79fcc51c7bc0c87dea769245890089a10c8cfd744f056a445f914a470ab1b8",
       "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
       "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+    },
+    {
+      "file": "edias-field-team.png",
+      "description": "EDIAs field team at Hakalau Forest Biological Field Station",
+      "supplied_by": "Sven Weber",
+      "source_filename": "codex-clipboard-9adbca4e-eaf4-4fa9-9daa-6235600aff48.png",
+      "source_dimensions": [
+        495,
+        409
+      ],
+      "output_dimensions": [
+        495,
+        409
+      ],
+      "output_sha256": "453d520ea497058c7189414ce3276fdb685b05e7f054a6b28cdb3656a8569e5d",
+      "use_permission": "User supplied this image and requested its placement in the EDIAs project section.",
+      "changes": "Converted to sRGB and re-encoded as PNG without embedded metadata. Original transparency preserved; no cropping or retouching."
     }
   ]
 }

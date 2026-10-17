@@ -622,6 +622,16 @@ h3 {
   object-fit: contain;
 }
 
+.site-photo--uncropped {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.project-feature[id] {
+  scroll-margin-top: 6rem;
+}
+
 .personal-photo {
   margin: 0;
 }
