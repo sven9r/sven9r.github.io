@@ -311,6 +311,111 @@ h3 {
   color: var(--color-accent-dark);
 }
 
+.cv-viewer-open {
+  overflow: hidden;
+}
+
+.cv-viewer-open body {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cv-dialog {
+  width: min(1160px, calc(100vw - 2rem));
+  height: calc(100vh - 2rem);
+  height: calc(100dvh - 2rem);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  color: var(--color-ink);
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.cv-dialog[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.cv-dialog::backdrop {
+  background: rgba(30, 42, 36, 0.65);
+}
+
+.cv-dialog__header,
+.cv-dialog__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+}
+
+.cv-dialog__header {
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cv-dialog__header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.cv-dialog__download,
+.cv-dialog__close {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cv-dialog__close {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-accent-dark);
+  background: var(--color-panel);
+  cursor: pointer;
+}
+
+.cv-dialog__close:hover {
+  background: var(--color-accent-soft);
+}
+
+.cv-dialog__document {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.75rem;
+  background: var(--color-field);
+}
+
+.cv-dialog__page {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 0.75rem;
+}
+
+.cv-dialog__page:last-child {
+  margin-bottom: 0;
+}
+
+.cv-dialog__page img {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.cv-dialog__help {
+  margin: 0;
+  padding: 0.55rem 1rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--color-border);
+}
+
 .eyebrow {
   color: var(--color-accent);
   font-size: 0.82rem;
@@ -701,6 +806,16 @@ h3 {
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
+}
+
+.publication-card .publication-title {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+
+.publication-card .publication-title:hover {
+  color: var(--color-accent-dark);
 }
 
 .publication-card .citation-count,

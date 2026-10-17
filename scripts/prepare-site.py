@@ -309,7 +309,57 @@ def public_url(base, path):
     return base + ("/" if relative == "index.html" else "/" + quote(relative, safe="/"))
 
 
-def output_html(source, parser, stage, base, omit_cv=False, citation_records=None, journal_metrics=None):
+def load_cv_preview(pdf):
+    """Use reviewed static previews only when they match the current public PDF."""
+    manifest = ROOT / "assets/cv/preview-source.json"
+    if not manifest.is_file():
+        raise ValueError("The public CV needs its reviewed page previews in assets/cv/preview-source.json.")
+    try:
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+    except ValueError as error:
+        raise ValueError("The CV preview manifest is invalid JSON.") from error
+    if not isinstance(data, dict) or type(data.get("schema_version")) is not int or data["schema_version"] != 1:
+        raise ValueError("CV previews need schema_version 1.")
+    if data.get("pdf_sha256") != sha256(pdf.read_bytes()).hexdigest():
+        raise ValueError("CV page previews do not match the current public PDF; regenerate them before publishing.")
+    pages = data.get("pages")
+    if not isinstance(pages, list) or not 1 <= len(pages) <= 30:
+        raise ValueError("CV previews need a non-empty pages list.")
+    reviewed = []
+    for index, page in enumerate(pages, 1):
+        expected = f"assets/cv/Sven_Weber_CV_public-page-{index}.webp"
+        if not isinstance(page, dict) or page.get("image") != expected:
+            raise ValueError(f"CV preview page {index} must use {expected}.")
+        path = local_path(expected, ROOT / "index.html")
+        with Image.open(path) as image:
+            image.verify()
+        if not isinstance(page.get("text"), str) or not page["text"].strip():
+            raise ValueError(f"CV preview page {index} needs its public PDF text for accessibility.")
+        reviewed.append({"image": path, "text": page["text"]})
+    return reviewed
+
+
+def cv_preview_template(stage, pages):
+    rendered = ['    <template id="cv-preview-pages">']
+    for index, page in enumerate(pages, 1):
+        relative = page["image"].relative_to(ROOT).as_posix()
+        image_path = stage / relative
+        version = sha256(image_path.read_bytes()).hexdigest()[:12]
+        with Image.open(image_path) as image:
+            width, height = image.size
+        lazy = ' loading="lazy"' if index > 1 else ""
+        rendered.append(f'      <section class="cv-dialog__page" aria-labelledby="cv-page-{index}-heading">')
+        rendered.append(f'        <h3 class="sr-only" id="cv-page-{index}-heading">CV, page {index} of {len(pages)}</h3>')
+        rendered.append(f'        <img src="{escape(relative, quote=True)}?v={version}" width="{width}" height="{height}" alt="" aria-hidden="true" decoding="async"{lazy}>')
+        rendered.append('        <div class="sr-only">')
+        for paragraph in re.split(r"\n\s*\n", page["text"].strip()):
+            rendered.append("          <p>" + escape(paragraph).replace("\n", "<br>") + "</p>")
+        rendered.append("        </div>\n      </section>")
+    rendered.append("    </template>")
+    return "\n".join(rendered)
+
+
+def output_html(source, parser, stage, base, omit_cv=False, citation_records=None, journal_metrics=None, cv_preview=None):
     text = source.read_text(encoding="utf-8")
     for index, (offset, original, attrs) in reversed(list(enumerate(parser.images))):
         values = dict(attrs)
@@ -328,6 +378,9 @@ def output_html(source, parser, stage, base, omit_cv=False, citation_records=Non
         text = text[:offset] + replacement + text[offset + len(original):]
     if omit_cv:
         text = omit_cv_links(text)
+    elif cv_preview and any(is_cv_reference(reference) for reference in parser.references):
+        template = cv_preview_template(stage, cv_preview)
+        text = re.sub(r"(<body\b[^>]*>)", lambda match: match.group(1) + "\n" + template, text, count=1, flags=re.I)
     if source.name == "research.html":
         text = render_citation_badges(text, citation_records or {})
         text = render_journal_metrics(text, journal_metrics or {})
@@ -360,6 +413,11 @@ def build(base, output, allow_application_cv, omit_cv=False):
     if output.exists() and (not output.is_dir() or (any(output.iterdir()) and not (output / MARKER).is_file())):
         raise ValueError(f"Refusing to overwrite a non-generated output directory: {output}")
     pages, sources, parsers = collect_sources(allow_application_cv, omit_cv)
+    cv_preview = None
+    public_cv = ROOT / "cv/Sven_Weber_CV_public.pdf"
+    if not omit_cv and public_cv in sources:
+        cv_preview = load_cv_preview(public_cv)
+        sources.update(page["image"] for page in cv_preview)
     citation_records = {}
     journal_metrics = {}
     if ROOT / "research.html" in parsers:
@@ -377,7 +435,7 @@ def build(base, output, allow_application_cv, omit_cv=False):
             if source.suffix.lower() != ".html":
                 copy_asset(source, stage / source.relative_to(ROOT))
         for source in pages:
-            (stage / source.name).write_text(output_html(source, parsers[source], stage, base, omit_cv, citation_records, journal_metrics), encoding="utf-8")
+            (stage / source.name).write_text(output_html(source, parsers[source], stage, base, omit_cv, citation_records, journal_metrics, cv_preview), encoding="utf-8")
         sitemap = ElementTree.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         for page in pages:
             if page.name != "404.html":
