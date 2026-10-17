@@ -1638,3 +1638,234 @@ h3 {
     font-size: 0.56rem;
   }
 }
+
+/* A decorative courier hands off to the visitor's own email app. */
+.email-courier {
+  position: fixed;
+  z-index: 25;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(440px, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: 0.7rem 1rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fbfcfa;
+  color: var(--color-ink);
+  box-shadow: 0 12px 40px rgba(19, 47, 31, 0.2);
+}
+
+.email-courier[hidden] {
+  display: none;
+}
+
+.email-courier__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.email-courier__top p {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.email-courier__dismiss {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-accent-dark);
+  font: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.email-courier__dismiss:hover {
+  background: var(--color-accent-soft);
+}
+
+.email-courier__scene {
+  position: relative;
+  height: 104px;
+  margin: 0.15rem 0 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.email-courier__runner {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 152px);
+  width: 96px;
+  height: 104px;
+}
+
+.email-courier__sprite {
+  width: 96px;
+  height: 104px;
+  background-image: url("assets/mascot/spider-courier.webp");
+  background-repeat: no-repeat;
+  background-size: 768px 312px;
+  background-position: 0 0;
+  animation: courier-idle 1.2s steps(1, end) infinite;
+}
+
+.email-courier[data-phase="running"] .email-courier__runner {
+  animation: courier-travel 1.05s ease-out both;
+}
+
+.email-courier[data-phase="running"] .email-courier__sprite {
+  animation: courier-run 0.64s steps(1, end) infinite;
+}
+
+.email-courier[data-phase="waving"] .email-courier__sprite {
+  animation: courier-wave 0.64s steps(1, end) both;
+}
+
+.email-courier__letter {
+  position: absolute;
+  top: 53px;
+  left: 65px;
+  z-index: 1;
+  width: 26px;
+  height: 19px;
+  overflow: hidden;
+  border: 2px solid var(--color-accent-dark);
+  border-radius: 3px;
+  background: #f7f1dc;
+  transform: rotate(-7deg);
+}
+
+.email-courier__letter::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-right: 1px solid var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-accent-dark);
+  transform: rotate(45deg);
+}
+
+.email-courier[data-phase="waving"] .email-courier__letter {
+  animation: courier-drop 0.3s 0.1s both;
+}
+
+.email-courier[data-phase="ready"] .email-courier__letter {
+  display: none;
+}
+
+.email-courier__mailbox {
+  position: absolute;
+  top: 45px;
+  right: 9px;
+  width: 47px;
+  height: 36px;
+  border: 2px solid var(--color-accent-dark);
+  border-radius: 12px 12px 3px 3px;
+  background: var(--color-accent-soft);
+}
+
+.email-courier__mailbox::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  width: 4px;
+  height: 16px;
+  background: var(--color-accent-dark);
+}
+
+.email-courier__mailbox span {
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  width: 27px;
+  height: 2px;
+  background: var(--color-accent-dark);
+}
+
+.email-courier__options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 1rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.email-courier__options a,
+.email-courier__options button {
+  font: inherit;
+  font-weight: 700;
+}
+
+.email-courier__options button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  cursor: pointer;
+}
+
+.email-courier__address {
+  width: 100%;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+@keyframes courier-travel {
+  from { left: 0; }
+  to { left: calc(100% - 152px); }
+}
+
+@keyframes courier-drop {
+  from { transform: translate(0, 0) rotate(-7deg); opacity: 1; }
+  to { transform: translate(36px, -3px) scale(0.45); opacity: 0; }
+}
+
+/* Each row holds only its own frames, including the final step. */
+@keyframes courier-idle {
+  0% { background-position: 0 0; }
+  16.666% { background-position: -96px 0; }
+  33.333% { background-position: -192px 0; }
+  50% { background-position: -288px 0; }
+  66.666% { background-position: -384px 0; }
+  83.333%, 100% { background-position: -480px 0; }
+}
+
+@keyframes courier-run {
+  0% { background-position: 0 -104px; }
+  12.5% { background-position: -96px -104px; }
+  25% { background-position: -192px -104px; }
+  37.5% { background-position: -288px -104px; }
+  50% { background-position: -384px -104px; }
+  62.5% { background-position: -480px -104px; }
+  75% { background-position: -576px -104px; }
+  87.5%, 100% { background-position: -672px -104px; }
+}
+
+@keyframes courier-wave {
+  0% { background-position: 0 -208px; }
+  25% { background-position: -96px -208px; }
+  50% { background-position: -192px -208px; }
+  75%, 100% { background-position: -288px -208px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .email-courier *,
+  .email-courier *::after {
+    animation: none !important;
+  }
+}

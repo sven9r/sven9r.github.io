@@ -53,7 +53,7 @@
     },
     {
       "file": "orange-bird.webp",
-      "description": "A small orange bird perched among green leaves",
+      "description": "Endangered Hawaiʻi ʻākepa perched on an ʻōhiʻa branch",
       "photographer": "Sven Weber",
       "source_filename": "2CEBB165-7538-492C-A066-76562B17F56F_4_5005_c.jpeg",
       "source_dimensions": [
@@ -66,7 +66,11 @@
       ],
       "output_sha256": "35889cee743985841176b4caf58c3c2b7136ee3ec319c7a0c3ff6e091a086950",
       "use_permission": "Supplied by the photographer for use on this personal homepage; no third-party reuse license asserted.",
-      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only."
+      "changes": "EXIF orientation applied where present, converted to sRGB where a color profile was present, encoded as WebP without camera or location metadata. No retouching or upscaling; banner crops are CSS only.",
+      "species": "Loxops coccineus",
+      "identification_source": "Identified by Sven Weber in conversation on 2026-10-18.",
+      "conservation_status": "Endangered",
+      "conservation_status_source_url": "https://www.fws.gov/story/endangered-species-spotlight-akepa-loxops-coccineus"
     },
     {
       "file": "spider-egg-sac.webp",
