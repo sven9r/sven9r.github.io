@@ -1,0 +1,21 @@
+.DS_Store
+.Rhistory
+.RData
+__pycache__/
+*.py[cod]
+dist/
+.site-build-*/
+# Only the reviewed public CV belongs in the website repository.
+/cv/*
+!/cv/Sven_Weber_CV_public.pdf
+# Keep unused original media local. Add a new selected asset explicitly here.
+/media/**
+!/media/**/
+!/media/illustrations/news/ohia_branch_transparent.png
+!/media/pictures/fieldwork/fieldwork2.jpg
+!/media/pictures/outreach/2025_AAS_meeting_high_res.jpg
+!/media/pictures/outreach/Science_comm.png
+!/media/pictures/outreach/campus.jpg
+!/media/pictures/outreach/rachel_honor_thesis.jpeg
+!/media/pictures/profile/picture_private_rotated.jpeg
+!/media/pictures/profile/profile_picture_Sven_Weber.jpg
