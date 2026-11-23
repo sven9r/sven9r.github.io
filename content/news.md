@@ -19,6 +19,16 @@ python3 scripts/build-news.py
 
 ## Updates
 
+* 2026-11 | November 2026 | Took part in the International Congress of Arachnology in Kochi, India, with research on how spider diets reflect differences in arthropod communities across Hawaiian lava flows of different ages.
+* 2026-11 | November 2026 | Took part in the International Barcode of Life Conference in Bangkok, where the program included my talk on how leaf-derived eDNA reveals elevation-linked patterns of arthropod invasion on Oʻahu.
+* 2026-11 | November 2026 | Our study of how arthropod communities vary across elevations and ridges on Oʻahu, using DNA recovered from leaves, was accepted by Environmental DNA.
+* 2026-10 | October 2026 | Gave two talks at the Global eDNA Conference in Seattle on plant–arthropod interaction networks and invasion-linked turnover in Hawaiian forest refugia.
+* 2026-10 | October 2026 | Posted a preprint on using spider gut contents, including material from archived specimens, to reconstruct arthropod communities and food-web interactions.
+* 2026-10 | October 2026 | Released a public update to Primer Atlas, an open-source tool for exploring where metabarcoding primers bind and comparing their fit to reference sequences.
+* 2026-09 | September 2026 | Gave a talk at the California Academy of Sciences in San Francisco on using eDNA to study arthropod associations with native and introduced plants in Hawaiʻi.
+* 2026-07 | July 2026 | Posted a preprint comparing leaf-litter eDNA extraction workflows for monitoring arthropods and fungi in Hawaiian forests.
+* 2026-06 | June 2026 | Co-authored a Molecular Ecology Resources study comparing eDNA and bulk DNA metabarcoding for arthropod surveys across three habitats on Guam.
+* 2026-06 | June 2026 | Posted a preprint with colleagues on ambrosia beetle–fungus associations and their role in Rapid ʻŌhiʻa Death in Hawaiʻi.
 * 2026-05 | May 2026 | Gave a talk at the Biodivreform Workshop at Trier University on time series and biodiversity change. 📈🇩🇪
 * 2026-05 | May 2026 | Gave a talk at the Lycosids of the World Workshop at Southwest University in Chongqing on Hawaiian Lycosidae spiders. 🕷️🇨🇳
 * 2026-04 | April 2026 | Gave an Ecolunch talk at UC Berkeley on using eDNA-based monitoring to answer ecological questions. 🧬🐞

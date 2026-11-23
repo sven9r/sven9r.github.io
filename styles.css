@@ -53,8 +53,15 @@ a:hover {
 .research-projects[id],
 #themes,
 #publications,
-#under-review {
+#under-review,
+#oahu-topography {
   scroll-margin-top: 10rem;
+}
+
+.project-feature[id],
+.event-card[id],
+#talks {
+  scroll-margin-top: 5rem;
 }
 
 img {
@@ -853,6 +860,14 @@ h3 {
   font-variant-numeric: tabular-nums;
 }
 
+.publication-card--in-press {
+  margin-bottom: 1rem;
+}
+
+.publication-card .publication-resources {
+  margin-top: 0.65rem;
+}
+
 .publication-card .publication-title {
   color: var(--color-accent);
   font-weight: 700;
@@ -1147,7 +1162,7 @@ h3 {
   }
 }
 
-/* Homepage: the landscape introduces the work; biography follows below. */
+/* Homepage */
 .home-page .home-hero {
   position: relative;
   isolation: isolate;
@@ -1266,6 +1281,38 @@ h3 {
 
 .home-page .home-hero__credit a {
   color: inherit;
+}
+
+.home-highlights {
+  background: var(--color-field);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-highlights__inner {
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+}
+
+.home-highlights__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.home-highlights__heading h2 {
+  margin: 0;
+}
+
+.home-highlights__heading a {
+  font-weight: 700;
+}
+
+.home-highlights .eyebrow {
+  margin-bottom: 0.6rem;
+  color: var(--color-accent-dark);
+  font-size: 0.875rem;
 }
 
 .home-page .home-bio {
